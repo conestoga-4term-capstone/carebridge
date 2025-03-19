@@ -124,5 +124,30 @@ namespace CareBridgeBackend.Controllers
 
             return Ok(doctors);
         }
+
+        /// <summary>
+        /// Get all Offices
+        /// </summary>
+        /// <returns>A list of all offices</returns>
+        [HttpGet]
+        public async Task<IActionResult> GetAllOffices()
+        {
+            var offices = await _context.Offices
+                .Include(o => o.Doctors)
+                .Select(o => new OfficeDto
+                {
+                    Id = o.Id,
+                    Name = o.Name,
+                    Address = o.Address,
+                    City = o.City,
+                    State = o.State,
+                    ZipCode = o.ZipCode,
+                    DoctorIds = o.Doctors.Select(d => d.Id).ToList()
+                })
+                .ToListAsync();
+
+            return Ok(offices);
+        }
+
     }
 }

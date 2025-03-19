@@ -10,7 +10,6 @@ namespace CareBridgeBackend.Controllers
 {
     [Route("api/treatments")]
     [ApiController]
-    [Authorize(Roles = "Doctor,Assistant")]
     public class TreatmentController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -45,6 +44,7 @@ namespace CareBridgeBackend.Controllers
         /// <summary>
         /// Create a new treatment.
         /// </summary>
+        [Authorize(Roles = "Doctor,Assistant")]
         [HttpPost]
         public async Task<IActionResult> CreateTreatment([FromBody] TreatmentCreateDto dto)
         {
@@ -76,6 +76,7 @@ namespace CareBridgeBackend.Controllers
         /// <summary>
         /// Update an existing treatment.
         /// </summary>
+        [Authorize(Roles = "Doctor,Assistant")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTreatment(int id, [FromBody] TreatmentUpdateDto dto)
         {
@@ -103,6 +104,7 @@ namespace CareBridgeBackend.Controllers
         /// <summary>
         /// Delete a treatment.
         /// </summary>
+        [Authorize(Roles = "Doctor,Assistant")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTreatment(int id)
         {
