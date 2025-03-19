@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/AppointmentModal.css";
 import PrescriptionsModal from "./PrescriptionsModal";
+import TreatmentModal from "./TreatmentModal";
 
 // Define interfaces for type safety
 interface AppointmentDetailDto {
@@ -29,10 +30,10 @@ interface EditAppointmentDto {
 interface AppointmentModalProps {
   appointmentId: number | null;
   token: string;
-  userRole: number; 
+  userRole: number; // We need the user role to determine what actions are allowed
   userId: number;
   onClose: () => void;
-  onAppointmentUpdated: () => void; 
+  onAppointmentUpdated: () => void; // To refresh the appointments list after an update
 }
 
 const AppointmentDetailsModal: React.FC<AppointmentModalProps> = ({
@@ -60,6 +61,8 @@ const AppointmentDetailsModal: React.FC<AppointmentModalProps> = ({
   const [showDeleteConfirm, setShowDeleteConfirm] = useState<boolean>(false);
   // State for showing prescriptions modal
   const [showPrescriptionsModal, setShowPrescriptionsModal] = useState<boolean>(false);
+  // State for showing treatment modal
+  const [showTreatmentModal, setShowTreatmentModal] = useState<boolean>(false);
 
   // Fetch appointment details when modal opens
   useEffect(() => {
@@ -98,7 +101,7 @@ const AppointmentDetailsModal: React.FC<AppointmentModalProps> = ({
       });
     } catch (err) {
       console.error("Error fetching appointment details:", err);
-      setError(`Failed to load appointment details: ${err.message}`);
+      setError(`Failed to load appointment details: ${err instanceof Error ? err.message : 'Unknown error'}`);
     } finally {
       setLoading(false);
     }
@@ -135,7 +138,7 @@ const AppointmentDetailsModal: React.FC<AppointmentModalProps> = ({
       onAppointmentUpdated();
     } catch (err) {
       console.error("Error updating appointment:", err);
-      setError(`Failed to update appointment: ${err.message}`);
+      setError(`Failed to update appointment: ${err instanceof Error ? err.message : 'Unknown error'}`);
     }
   };
 
@@ -161,8 +164,14 @@ const AppointmentDetailsModal: React.FC<AppointmentModalProps> = ({
       onClose();
     } catch (err) {
       console.error("Error deleting appointment:", err);
-      setError(`Failed to delete appointment: ${err.message}`);
+      setError(`Failed to delete appointment: ${err instanceof Error ? err.message : 'Unknown error'}`);
     }
+  };
+
+  // Function to handle treatment added successfully
+  const handleTreatmentAdded = () => {
+    // You can add specific logic here if needed
+    console.log("Treatment was added successfully");
   };
 
   // Function to format date for display
@@ -277,6 +286,13 @@ const AppointmentDetailsModal: React.FC<AppointmentModalProps> = ({
                       >
                         Prescriptions
                       </button>
+                      
+                      <button 
+                        className="treatment-button"
+                        onClick={() => setShowTreatmentModal(true)}
+                      >
+                        Add Treatment
+                      </button>
                     </div>
                   )}
                   
@@ -367,6 +383,18 @@ const AppointmentDetailsModal: React.FC<AppointmentModalProps> = ({
             token={token}
             userRole={userRole}
             onClose={() => setShowPrescriptionsModal(false)}
+          />
+        )}
+
+        {/* Treatment Modal */}
+        {showTreatmentModal && appointment && (
+          <TreatmentModal
+            appointmentId={appointment.id}
+            patientId={appointment.patient.id}
+            patientName={`${appointment.patient.firstName} ${appointment.patient.lastName}`}
+            token={token}
+            onClose={() => setShowTreatmentModal(false)}
+            onTreatmentAdded={handleTreatmentAdded}
           />
         )}
       </div>

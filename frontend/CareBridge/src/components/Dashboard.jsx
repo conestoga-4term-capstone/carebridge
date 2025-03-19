@@ -14,6 +14,15 @@ import PatientSchedule from "./PatientSchedule";
 import Patients from "./Patients";
 import Appointments from "./Appointments";
 import Coverage from "./Coverage";
+import MedicalReports from "./MedicalReports";
+
+// Patient 1 
+// John doe
+// 123qwe
+// doctor 1 ----- 2
+//      bobby    jon
+//          qwe123
+
 
 const Sidebar = ({ user, onSelectItem }) => {
   if (!user) return null; // Ensure user data is loaded
@@ -145,6 +154,11 @@ const DashboardContent = ({ selectedItem, user, token }) => {
   if (selectedItem === "Coverage") {
     return <Coverage token={token}/>;
   }
+
+  //Get Medical Reports for a Patient
+  if (selectedItem === "MedicalReports" && user?.role === 1) {
+    return <MedicalReports user={user} token={token}/>;
+  }
   
   //default return
   return (
@@ -171,9 +185,9 @@ const DashboardContent = ({ selectedItem, user, token }) => {
       {/* {selectedItem === "Patients" && 
         <div className="card">Patients Content</div>
       } */}
-      {selectedItem === "MedicalReports" && 
+      {/* {selectedItem === "MedicalReports" && 
         <div className="card">Medical Reports Content</div>
-      }
+      } */}
       {/* {selectedItem === "Help" && 
         <div className="card">Help Content</div>
       } */}
