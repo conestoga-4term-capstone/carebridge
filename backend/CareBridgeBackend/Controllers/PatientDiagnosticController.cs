@@ -73,5 +73,7 @@ namespace CareBridgeBackend.Controllers
             return Ok(new { Message = "Diagnostic added successfully.", DiagnosticId = diagnostic.Id });
         }
 
+
+
     }
 }
