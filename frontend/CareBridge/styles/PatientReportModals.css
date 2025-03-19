@@ -1,0 +1,229 @@
+/* PatientReportModals.css - Styling for patient prescription and treatment modals */
+
+.patient-report-modal {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalFadeIn 0.3s ease;
+  }
+  
+  /* Animation for modal appearance */
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Modal header and body are generally inherited from the common styles */
+  
+  /* Report list styling */
+  .report-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .report-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .report-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .report-header {
+    background-color: #4A90E2;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .report-header-content h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  .report-header-content p {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  /* Status indicators */
+  .status-badge {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-weight: bold;
+  }
+  
+  .status-active {
+    background-color: #43A047;
+  }
+  
+  .status-completed {
+    background-color: #757575;
+  }
+  
+  .status-cancelled {
+    background-color: #D32F2F;
+  }
+  
+  /* Expand/collapse indicator */
+  .expand-arrow {
+    font-size: 0.8rem;
+  }
+  
+  /* Report summary section */
+  .report-summary {
+    padding: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .report-summary p {
+    margin: 0;
+    color: #555;
+  }
+  
+  .diagnostic-notes {
+    white-space: pre-line; /* Preserves line breaks */
+  }
+  
+  /* Prescription and medication styling */
+  .prescription-details {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .prescription-details p {
+    margin: 0.5rem 0;
+    color: #555;
+  }
+  
+  .prescription-doctor {
+    font-style: italic;
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  /* Medications and treatments containers */
+  .medications-container,
+  .treatments-container {
+    padding: 1rem;
+    background-color: #f9f9f9;
+  }
+  
+  .medications-container h4,
+  .treatments-container h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .medications-list,
+  .treatments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .medication-item,
+  .treatment-item {
+    background-color: white;
+    border-radius: 4px;
+    padding: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .medication-details h5,
+  .treatment-details h5 {
+    margin: 0 0 0.5rem 0;
+    color: #4A90E2;
+  }
+  
+  .medication-details p,
+  .treatment-details p {
+    margin: 0.3rem 0;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  .treatment-description {
+    white-space: pre-line;
+    margin-bottom: 1rem !important;
+  }
+  
+  .treatment-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 0.75rem;
+    border-top: 1px solid #eee;
+    padding-top: 0.75rem;
+  }
+  
+  .treatment-dates p {
+    margin: 0;
+  }
+  
+  .medication-dosage {
+    font-weight: bold;
+    color: #43A047;
+  }
+  
+  .medication-frequency {
+    font-style: italic;
+  }
+  
+  .medication-notes {
+    font-size: 0.9rem !important;
+    color: #777 !important;
+    margin-top: 0.5rem !important;
+    padding-top: 0.5rem;
+    border-top: 1px dashed #eee;
+  }
+  
+  /* Empty state message */
+  .no-data-message {
+    text-align: center;
+    padding: 2rem;
+    color: #777;
+    font-style: italic;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    margin: 1rem 0;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .patient-report-modal {
+      width: 95%;
+      max-height: 85vh;
+    }
+    
+    .treatment-dates {
+      flex-direction: column;
+    }
+  }
