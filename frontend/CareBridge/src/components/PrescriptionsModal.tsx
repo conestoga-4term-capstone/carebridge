@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import "../../styles/PrescriptionsModal.css";
 import NewPrescriptionModal from "./NewPrescriptionModal";
 import NewMedicationModal from "./NewMedicationModal";
+import '../../styles/Responsive.css';
 
 interface Medication {
   id: number;

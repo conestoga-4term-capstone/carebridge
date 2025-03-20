@@ -10,6 +10,7 @@ import Login from './components/Login';
 import EditProfile from './components/EditProfile';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/toastify-custom.css';
+import '../styles/Responsive.css';
 
 function App () {
     return (

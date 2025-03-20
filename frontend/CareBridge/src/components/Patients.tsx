@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from "react";
 import "../../styles/Patients.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HealthRecordsModal from "./HealthRecordsModal";
+import '../../styles/Responsive.css';
 
 // Define interface for patient data
 interface PatientDto {

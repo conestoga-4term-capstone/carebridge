@@ -4,6 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PatientPrescriptionsModal from "./PatientPrescriptionsModal";
 import PatientTreatmentsModal from "./PatientTreatmentsModal";
+import '../../styles/Responsive.css';
 
 // Define props for the component
 interface MedicalReportsProps {

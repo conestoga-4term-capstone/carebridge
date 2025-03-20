@@ -3,6 +3,7 @@ import "../../styles/HealthRecordsModal.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../../styles/TreatmentsModal.css";
+import '../../styles/Responsive.css';
 
 // Define interfaces for the data structures
 interface DiagnosticTemplate {
