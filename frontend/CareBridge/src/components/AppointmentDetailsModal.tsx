@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/AppointmentModal.css";
 import PrescriptionsModal from "./PrescriptionsModal";
 import TreatmentModal from "./TreatmentModal";
+import '../../styles/Responsive.css';
 
 // Define interfaces for type safety
 interface AppointmentDetailDto {

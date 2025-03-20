@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/HealthRecordsModal.css";
 import PatientPrescriptionsModal from "./PatientPrescriptionsModal";
 import DiagnosticsModal from "./DiagnosticsModal";
+import '../../styles/Responsive.css';
 
 // Define interfaces for the patient data
 interface PatientData {

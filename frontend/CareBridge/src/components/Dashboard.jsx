@@ -15,13 +15,7 @@ import Patients from "./Patients";
 import Appointments from "./Appointments";
 import Coverage from "./Coverage";
 import MedicalReports from "./MedicalReports";
-
-// Patient 1 
-// John doe
-// 123qwe
-// doctor 1 ----- 2
-//      bobby    jon
-//          qwe123
+import '../../styles/Responsive.css';
 
 
 const Sidebar = ({ user, onSelectItem }) => {
@@ -41,7 +35,6 @@ const Sidebar = ({ user, onSelectItem }) => {
         [
           { icon: <FaHome />, text: "Home", key: "Home" },
           { icon: <FaUser />, text: "My Patients", key: "Patients" },
-          // { icon: <FaFileMedical />, text: "Medical Reports", key: "MedicalReports" }, 
           { icon: <FaCalendarCheck />, text: "Appointments", key: "Appointments" },
           { icon: <FaCalendarAlt />, text: "Schedule", key: "Schedule" },
           { icon: <FaQuestionCircle />, text: "Coverage", key: "Coverage" },
@@ -182,15 +175,6 @@ const DashboardContent = ({ selectedItem, user, token }) => {
         </div>
         </>
       )}
-      {/* {selectedItem === "Patients" && 
-        <div className="card">Patients Content</div>
-      } */}
-      {/* {selectedItem === "MedicalReports" && 
-        <div className="card">Medical Reports Content</div>
-      } */}
-      {/* {selectedItem === "Help" && 
-        <div className="card">Help Content</div>
-      } */}
     </div>
   );
 };

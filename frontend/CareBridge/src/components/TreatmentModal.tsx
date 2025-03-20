@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "../../styles/HealthRecordsModal.css";
 import "../../styles/TreatmentsModal.css";
 import DiagnosticTemplatesModal from "./DiagnosticTemplatesModal";
+import '../../styles/Responsive.css';
 
 // Interface for diagnostic template
 interface DiagnosticTemplate {

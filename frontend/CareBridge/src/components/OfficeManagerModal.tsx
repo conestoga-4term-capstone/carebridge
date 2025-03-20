@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Box, Typography, Button, TextField, List, ListItem, ListItemText, IconButton } from '@mui/material';
 import { Add, Check, Close } from '@mui/icons-material';
 import '../../styles/OfficeManagerModal.css';
+import '../../styles/Responsive.css';
 
 interface Office {
   id: number;

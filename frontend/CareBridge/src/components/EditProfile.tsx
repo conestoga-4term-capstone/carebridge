@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import "../../styles/signup.css"; // Reusing the signup styles
+import "../../styles/signup.css"; 
+import '../../styles/Responsive.css';
 
 interface UserProfile {
   firstName: string;

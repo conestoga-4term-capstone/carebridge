@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "../../styles/PrescriptionsModal.css";
+import '../../styles/Responsive.css';
 
 interface NewPrescriptionModalProps {
   appointmentId: number;

@@ -1,0 +1,528 @@
+/* Fix the overall app container structure */
+.app-container {
+  display: flex !important;
+  width: 100% !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+/* Fixed sidebar styles */
+.sidebar {
+  width: 16rem !important;
+  min-width: 16rem !important;
+  height: 100vh !important;
+  background-color: #bfdbfe !important;
+  padding: 1.25rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow-y: auto !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Dashboard content area fix */
+.dashboard {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: #f0f4f8 !important;
+  height: 100vh !important;
+  overflow-y: auto !important;
+}
+
+/* Nav item spacing and formatting */
+.nav-item {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0.75rem !important;
+  border-radius: 0.5rem !important;
+  cursor: pointer !important;
+  margin-bottom: 0.5rem !important;
+  width: 100% !important;
+}
+
+.nav-item:hover {
+  background-color: #93c5fd !important;
+}
+
+/* Logo container fix */
+.logo-container {
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+.logo {
+  height: 4rem !important;
+  max-width: 100% !important;
+}
+
+/* TopBar fixes */
+.topbar {
+  width: 100% !important;
+  background-color: #93c5fd !important;
+  padding: 1rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-radius: 0.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Dashboard content spacing */
+.dashboard-content {
+  padding: 1.5rem !important;
+  flex: 1 !important;
+  overflow-y: auto !important;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: auto !important;
+  }
+  
+  .sidebar {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    padding: 0.75rem !important;
+    overflow-x: auto !important;
+  }
+  
+  .logo-container {
+    width: 100% !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .logo {
+    height: 3rem !important;
+  }
+  
+  .nav-item {
+    width: auto !important;
+    margin-right: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .dashboard {
+    height: auto !important;
+    min-height: 80vh !important;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 0.5rem !important;
+  }
+  
+  .nav-item {
+    padding: 0.4rem 0.6rem !important;
+    margin-right: 0.3rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .logo {
+    height: 2.5rem !important;
+  }
+  
+  .topbar {
+    flex-direction: column !important;
+    padding: 0.25rem !important;
+  }
+  
+  .welcome-text {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .topbar-icons {
+    justify-content: center !important;
+  }
+}
+
+/* Responsive.css - Global responsive styles for the healthcare application */
+
+/* Base responsive variables */
+:root {
+  --mobile-breakpoint: 480px;
+  --tablet-breakpoint: 768px;
+  --laptop-breakpoint: 1024px;
+  --desktop-breakpoint: 1280px;
+}
+
+/* Global responsive adjustments */
+@media (max-width: 1280px) {
+  html {
+    font-size: 15px; /* Slightly reduce base font size for better fitting */
+  }
+  
+  .dashboard-content {
+    padding: 1rem;
+  }
+  
+  .card-grid, 
+  .patients-grid, 
+  .appointments-grid,
+  .schedules-grid,
+  .doctor-list,
+  .plans-grid,
+  .medical-reports-cards,
+  .templates-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+  
+  /* Dashboard layout adjustments */
+  .app-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .sidebar {
+    width: 100% !important; /* !important to override inline styles */
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+  }
+  
+  .sidebar.collapsed {
+    width: 100% !important; /* !important to override inline styles */
+  }
+  
+  .logo-container {
+    margin-bottom: 0;
+  }
+  
+  .logo {
+    height: 2.5rem;
+    /* width: 80%; */
+  }
+  
+  /* Make sidebar items horizontal */
+  .sidebar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .nav-item {
+    flex: 0 0 auto;
+    margin-right: 1rem;
+  }
+  
+  .dashboard {
+    height: calc(100vh - 70px); /* Adjust based on sidebar height */
+  }
+  
+  /* Modal adjustments */
+  .modal-content,
+  .health-records-modal,
+  .patient-prescriptions-modal,
+  .patient-diagnostics-modal,
+  .prescriptions-modal-content,
+  .treatment-modal,
+  .diagnostic-templates-modal,
+  .patient-report-modal,
+  .office-modal-content {
+    width: 95%;
+    max-height: 85vh;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Grid layouts - collapse to single column */
+  .card-grid, 
+  .patients-grid, 
+  .appointments-grid,
+  .schedules-grid,
+  .doctor-list,
+  .plans-grid,
+  .medical-reports-cards,
+  .templates-list {
+    grid-template-columns: 1fr !important; /* !important to override other styles */
+  }
+  
+  /* Modal action buttons */
+  .modal-actions, 
+  .doctor-actions,
+  .form-actions,
+  .confirm-actions,
+  .prescription-actions,
+  .health-record-actions,
+  .template-actions {
+    flex-direction: column !important;
+    gap: 0.75rem;
+  }
+  
+  /* Button widths in responsive view */
+  .edit-button, 
+  .prescriptions-button,
+  .treatment-button,
+  .delete-button,
+  .confirm-delete-button,
+  .cancel-button,
+  .save-button,
+  .add-medication-button,
+  .delete-prescription-button,
+  .select-button,
+  .view-details-button,
+  .view-record-button {
+    width: 100% !important;
+  }
+  
+  /* Header adjustments */
+  .topbar {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  .welcome-text {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Other adjustments */
+  .info-card {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  
+  .info-image {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  /* Form adjustments */
+  .form-group input, 
+  .form-group textarea,
+  .form-select,
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 0.6rem;
+  }
+  
+  /* Modals additional adjustments */
+  .modal-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .modal-body {
+    padding: 1rem;
+  }
+  
+  /* Fix for the sidebar on mobile */
+  .sidebar {
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  
+  /* Further reduce paddings and margins */
+  .dashboard-content,
+  .modal-body,
+  .card-details,
+  .patient-details,
+  .appointment-details,
+  .prescription-details {
+    padding: 0.75rem;
+  }
+  
+  /* Button adjustments */
+  .button,
+  .view-button,
+  .edit-button,
+  .save-button,
+  .cancel-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Signup container */
+  .signup-container {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+  
+  /* Navbar adjustments */
+  .navbar ul {
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .navbar li {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  
+  /* Dashboard card headers */
+  .card-header,
+  .patient-header,
+  .appointment-header,
+  .schedule-header,
+  .prescription-header,
+  .doctor-card h3 {
+    padding: 0.75rem;
+  }
+  
+  .card-header h3,
+  .patient-header h3,
+  .appointment-header h3,
+  .schedule-header h3,
+  .prescription-header h3,
+  .doctor-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  /* Date input fields need more space on mobile */
+  input[type="datetime-local"] {
+    font-size: 0.9rem;
+    padding: 0.75rem 0.5rem;
+    width: 100%;
+  }
+  
+  /* Fix for small screens */
+  .topbar {
+    text-align: center;
+  }
+  
+  .topbar-icons {
+    justify-content: center;
+  }
+}
+
+/* Specific component fixes */
+
+/* Fix for treatment dates */
+@media (max-width: 768px) {
+  .treatment-dates,
+  .medication-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  /* Fix for sidebar items */
+  .sidebar {
+    padding: 0.5rem;
+  }
+  
+  .nav-item {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .logo-container {
+    max-width: 100px;
+  }
+}
+
+/* Fix for the welcome section and notification area */
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+  }
+  
+  .topbar-icons {
+    padding-right: 0;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* Better modal animation for mobile */
+@media (max-width: 768px) {
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Hide elements that might overflow on smaller screens */
+@media (max-width: 480px) {
+  .status-badge {
+    display: none;
+  }
+  
+  /* Fix for the sidebar scroll issue */
+  .sidebar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Extra small device adjustments */
+@media (max-width: 360px) {
+  .signup-container {
+    padding: 1rem;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .button {
+    padding: 0.5rem;
+  }
+  
+  .welcome-text {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* Ensure modals work well on very small screens */
+@media (max-width: 480px) {
+  .modal-content,
+  .health-records-modal,
+  .patient-prescriptions-modal,
+  .patient-diagnostics-modal,
+  .prescriptions-modal-content,
+  .treatment-modal,
+  .diagnostic-templates-modal,
+  .patient-report-modal,
+  .office-modal-content {
+    width: 98%;
+    max-height: 90vh;
+    margin: 0.25rem;
+  }
+  
+  .modal-header {
+    padding: 0.75rem;
+  }
+  
+  .close-button {
+    padding: 0.25rem;
+  }
+}
+
+

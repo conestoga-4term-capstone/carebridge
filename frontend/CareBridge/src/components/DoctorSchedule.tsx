@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/DoctorSchedule.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import '../../styles/Responsive.css';
 
 interface ScheduleData {
   id: number;

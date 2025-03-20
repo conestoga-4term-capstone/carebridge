@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/FindDoctor.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import '../../styles/Responsive.css';
 
 // Define the interface for appointment form values
 interface AppointmentFormValues {
