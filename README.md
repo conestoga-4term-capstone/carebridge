@@ -7,10 +7,6 @@
 <br>
 
 <p align="center">
-  <!-- build -->
-  <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/conestoga-4term-capstone/carebridge/.github%2Fworkflows%2Fmain_sastravelplanner.yml">
-  <!-- release -->
-  <img alt="GitHub Release" src="https://img.shields.io/github/v/release/conestoga-4term-capstone/carebridge">
   <!-- license -->
   <img alt="License" src="https://img.shields.io/github/license/conestoga-4term-capstone/carebridge?color=cb4c83">
   <!-- commits per month -->
